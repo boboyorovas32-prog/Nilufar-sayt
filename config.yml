@@ -1,0 +1,62 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "uz"
+
+collections:
+  - name: "content"
+    label: "Sayt kontenti"
+    files:
+      - file: "content/data.json"
+        label: "Yangiliklar, eʼlonlar, safarlar, hamkorlar"
+        name: "data"
+        fields:
+          - label: "Statistika (4 ta katak)"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Raqam", name: "number", widget: "string" }
+              - { label: "Izoh", name: "label", widget: "string" }
+
+          - label: "Yangiliklar"
+            name: "news"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Sana", name: "date", widget: "string" }
+              - { label: "Sarlavha", name: "title", widget: "string" }
+              - { label: "Qisqacha matn", name: "excerpt", widget: "text" }
+              - { label: "Rasm", name: "image", widget: "image", required: false }
+
+          - label: "Eʼlonlar"
+            name: "announcements"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Sana", name: "date", widget: "string" }
+              - { label: "Sarlavha", name: "title", widget: "string" }
+              - { label: "Manzil / joy", name: "location", widget: "string" }
+              - { label: "Rasm", name: "image", widget: "image", required: false }
+
+          - label: "Xorijiy safarlar"
+            name: "trips"
+            widget: "list"
+            summary: "{{country}}"
+            fields:
+              - { label: "Sana", name: "date", widget: "string" }
+              - { label: "Davlat — shahar", name: "country", widget: "string" }
+              - { label: "Tavsif", name: "description", widget: "text" }
+              - { label: "Bayroq emoji", name: "flag", widget: "string", required: false }
+              - { label: "Yorliq (masalan: Forum, Sammit)", name: "tag", widget: "string", required: false }
+              - { label: "Rasm", name: "image", widget: "image", required: false }
+
+          - label: "Hamkorlar"
+            name: "partners"
+            widget: "list"
+            summary: "{{name}}"
+            fields:
+              - { label: "Tashkilot nomi", name: "name", widget: "string" }

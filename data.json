@@ -1,0 +1,37 @@
+{
+  "stats": [
+    { "number": "12+", "label": "Yillik davlat va jamoat faoliyati tajribasi" },
+    { "number": "8", "label": "Xorijiy davlatda oʻtkazilgan forum va uchrashuvlar" },
+    { "number": "25+", "label": "Yoshlar va ayollarga qaratilgan tashabbuslar" },
+    { "number": "PhD", "label": "Pedagogika fanlari boʻyicha falsafa doktori" }
+  ],
+  "news": [
+    { "date": "14-avgust, 2026", "title": "Respublika yoshlar forumida yangi tashabbus taqdim etildi", "excerpt": "Yosh yetakchilarni qoʻllab-quvvatlovchi yangi grant dasturi eʼlon qilindi.", "image": "" },
+    { "date": "02-avgust, 2026", "title": "Ayollar liderligi maktabi oʻz ishini boshladi", "excerpt": "Birinchi oqim uchun 40 nafar ishtirokchi tanlab olindi.", "image": "" },
+    { "date": "20-iyul, 2026", "title": "Pedagogika universitetida maʼruza oʻqildi", "excerpt": "Zamonaviy taʼlim metodologiyalari mavzusida talabalar bilan ochiq muloqot.", "image": "" },
+    { "date": "05-iyul, 2026", "title": "Mintaqaviy anjumanda ishtirok", "excerpt": "Fargʻona viloyatida yoshlar bandligi masalalari muhokama qilindi.", "image": "" },
+    { "date": "18-iyun, 2026", "title": "Ekologik maʼrifat haftaligi yakunlandi", "excerpt": "10 dan ortiq taʼlim muassasasida uchrashuvlar boʻlib oʻtdi.", "image": "" },
+    { "date": "30-may, 2026", "title": "Xalqaro delegatsiya bilan uchrashuv", "excerpt": "Yoshlar almashinuvi dasturlari boʻyicha muzokaralar oʻtkazildi.", "image": "" }
+  ],
+  "announcements": [
+    { "date": "20-sentabr", "title": "Yoshlar bilan ochiq muloqot kechasi", "location": "Toshkent, Yoshlar markazi", "image": "" },
+    { "date": "3-oktabr", "title": "Ayollar tadbirkorligi boʻyicha seminar", "location": "Samarqand viloyati", "image": "" },
+    { "date": "15-oktabrgacha", "title": "Xalqaro forumga ariza qabuli", "location": "Onlayn ariza", "image": "" },
+    { "date": "2-noyabr", "title": "Ilmiy anjuman: pedagogika fanlari", "location": "TDPU, Toshkent", "image": "" }
+  ],
+  "trips": [
+    { "date": "May, 2026", "country": "Turkiya — Istanbul", "description": "Yoshlar siyosati boʻyicha xalqaro konferensiyada delegatsiya tarkibida ishtirok etildi.", "flag": "🇹🇷", "tag": "Konferensiya", "image": "" },
+    { "date": "Mart, 2026", "country": "Janubiy Koreya — Seul", "description": "Taʼlim texnologiyalari boʻyicha xalqaro forumda maʼruza bilan ishtirok etildi.", "flag": "🇰🇷", "tag": "Forum", "image": "" },
+    { "date": "Dekabr, 2025", "country": "Germaniya — Berlin", "description": "Ayollar liderligi dasturi doirasida tajriba almashish safari.", "flag": "🇩🇪", "tag": "Dastur", "image": "" },
+    { "date": "Noyabr, 2025", "country": "BAA — Dubay", "description": "Barqaror rivojlanish sammitida ekologik maʼrifat yoʻnalishi boʻyicha ishtirok etildi.", "flag": "🇦🇪", "tag": "Sammit", "image": "" },
+    { "date": "Sentabr, 2025", "country": "Qozogʻiston — Ostona", "description": "Markaziy Osiyo yoshlar assambleyasida mintaqaviy hamkorlik masalalari muhokama qilindi.", "flag": "🇰🇿", "tag": "Assambleya", "image": "" }
+  ],
+  "partners": [
+    { "name": "UNFPA" },
+    { "name": "Yoshlar ishlari agentligi" },
+    { "name": "Xotin-qizlar qoʻmitasi" },
+    { "name": "Markaziy Osiyo yoshlar tarmogʻi" },
+    { "name": "NNT sektor vakillari" },
+    { "name": "TDPU" }
+  ]
+}

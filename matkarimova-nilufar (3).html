@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nilufar Matkarimova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --paper2:#EAF4FF;
+    --ink:#12294B;
+    --ink-soft:#51698C;
+    --indigo:#2E86FF;
+    --indigo-deep:#1665D8;
+    --magenta:#FFDCC4;
+    --lime:#9FCFFF;
+    --sky:#CFE7FF;
+    --line:rgba(18,41,75,0.14);
+    --disp:'Bricolage Grotesque', sans-serif;
+    --sans:'Inter', sans-serif;
+    --r:22px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 1px 1px, rgba(18,41,75,0.06) 1px, transparent 0);
+    background-size:22px 22px;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 40px;}
+  h1,h2,h3{font-family:var(--disp);font-weight:700;margin:0;letter-spacing:-0.01em;}
+
+  ::selection{background:var(--lime);color:var(--ink);}
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(255,255,255,0.88);backdrop-filter:blur(8px);
+    border-bottom:2px solid var(--ink);
+  }
+  .nav-inner{max-width:1220px;margin:0 auto;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:40px;height:40px;border-radius:50%;background:var(--indigo);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--disp);font-weight:800;color:var(--paper);font-size:15px;
+    transform:rotate(-6deg);
+  }
+  .brand-name{font-family:var(--disp);font-weight:700;font-size:16px;}
+  nav.links{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.links a{
+    font-size:14px;font-weight:600;padding:9px 16px;border-radius:99px;
+    transition:background .18s ease, color .18s ease;
+  }
+  nav.links a:hover{background:var(--ink);color:var(--paper);}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:8px;}
+  .nav-toggle span{width:22px;height:2.5px;background:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 0 0;overflow:hidden;}
+  .hero .wrap{display:grid;grid-template-columns:1.3fr .95fr;gap:20px;align-items:center;}
+  .role-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;}
+  .pill{
+    font-size:13px;font-weight:700;padding:7px 15px;border-radius:99px;border:2px solid var(--ink);
+    display:inline-flex;align-items:center;gap:6px;background:var(--paper);
+  }
+  .pill.on-indigo{background:var(--indigo);color:var(--paper);border-color:var(--indigo);}
+  .pill.on-lime{background:var(--lime);border-color:var(--ink);}
+
+  .hero h1{
+    font-size:clamp(44px,7vw,88px);line-height:0.94;
+  }
+  .hero h1 .last{display:block;-webkit-text-stroke:2px var(--ink);color:transparent;}
+  .hero-desc{margin-top:26px;font-size:17px;color:var(--ink-soft);max-width:48ch;}
+  .hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:15px 28px;font-weight:700;font-size:15px;
+    border-radius:99px;border:2px solid var(--ink);transition:transform .18s ease, background .18s ease, color .18s ease;
+  }
+  .btn-solid{background:var(--ink);color:var(--paper);}
+  .btn-solid:hover{background:var(--indigo);border-color:var(--indigo);transform:translate(-2px,-2px);}
+  .btn-outline:hover{background:var(--ink);color:var(--paper);transform:translate(-2px,-2px);}
+
+  /* collage portrait block */
+  .collage{position:relative;height:460px;}
+  .blob{
+    position:absolute;border-radius:44% 56% 62% 38% / 45% 40% 60% 55%;
+    background:linear-gradient(135deg, var(--indigo) 0%, #6FB3FF 100%);
+    top:6%;left:8%;width:82%;height:82%;
+  }
+  .collage-tag{
+    position:absolute;background:var(--paper);border:2px solid var(--ink);border-radius:14px;
+    padding:9px 14px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;
+    box-shadow:5px 5px 0 var(--ink);
+  }
+  .t1{top:2%;right:2%;transform:rotate(6deg);background:var(--lime);}
+  .t2{bottom:8%;left:-6%;transform:rotate(-5deg);}
+  .t3{bottom:0%;right:8%;transform:rotate(4deg);background:var(--magenta);color:var(--ink);border-color:var(--ink);}
+  .collage .initials{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:var(--disp);font-size:150px;font-weight:800;color:var(--paper);opacity:.92;
+  }
+
+  /* marquee ribbon */
+  .marquee{
+    margin-top:56px;background:var(--ink);color:var(--paper);
+    padding:16px 0;overflow:hidden;transform:rotate(-1.2deg);
+    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  }
+  .marquee-track{display:flex;gap:0;width:max-content;animation:scroll 32s linear infinite;}
+  @media (prefers-reduced-motion: reduce){.marquee-track{animation:none;}}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .marquee-track span{
+    font-family:var(--disp);font-weight:700;font-size:20px;padding:0 26px;white-space:nowrap;
+  }
+  .marquee-track span.dot{color:var(--lime);}
+
+  /* ---------- Stats ---------- */
+  .stats{padding:70px 0;}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .stat-card{
+    border:2px solid var(--ink);border-radius:var(--r);padding:26px 22px;background:var(--paper);
+  }
+  .stat-card:nth-child(1){background:var(--sky);}
+  .stat-card:nth-child(2){background:var(--lime);}
+  .stat-card:nth-child(3){background:var(--paper2);}
+  .stat-card:nth-child(4){background:var(--magenta);color:var(--ink);}
+  .stat-card .num{font-family:var(--disp);font-size:38px;font-weight:800;}
+  .stat-card .label{margin-top:8px;font-size:13.5px;font-weight:600;}
+
+  /* ---------- Section head ---------- */
+  .section-head{padding-top:40px;margin-bottom:44px;}
+  .eyebrow-tag{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;
+    border:2px solid var(--ink);border-radius:99px;padding:6px 14px;margin-bottom:20px;
+  }
+  .section-head h2{font-size:clamp(30px,4.4vw,50px);max-width:16ch;}
+
+  /* ---------- Faoliyat ---------- */
+  .pillar-row{
+    display:grid;grid-template-columns:.7fr 1.3fr;gap:36px;align-items:center;
+    padding:36px 0;border-top:2px solid var(--ink);
+  }
+  .pillar-row:last-child{border-bottom:2px solid var(--ink);}
+  .pillar-row:nth-child(even){grid-template-columns:1.3fr .7fr;}
+  .pillar-row:nth-child(even) .pillar-block{order:2;}
+  .pillar-block{
+    height:190px;border-radius:18px;border:2px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--disp);font-weight:800;font-size:34px;
+  }
+  .pb-1{background:var(--indigo);color:var(--paper);}
+  .pb-2{background:var(--lime);}
+  .pb-3{background:var(--sky);}
+  .pb-4{background:var(--magenta);color:var(--ink);}
+  .pillar-text h3{font-size:24px;margin-bottom:12px;}
+  .pillar-text p{color:var(--ink-soft);font-size:15px;margin:0;max-width:52ch;}
+
+  /* ---------- Yangiliklar ---------- */
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .news-card{
+    border:2px solid var(--ink);border-radius:var(--r);overflow:hidden;background:var(--paper);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .news-card:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--ink);}
+  .news-thumb{height:150px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:rgba(18,41,75,.4);overflow:hidden;}
+  .news-thumb img{width:100%;height:100%;object-fit:cover;}
+  .nt-1{background:var(--sky);} .nt-2{background:var(--lime);} .nt-3{background:var(--paper2);}
+  .nt-4{background:var(--magenta);color:rgba(18,41,75,.55);} .nt-5{background:var(--indigo);color:rgba(255,255,255,.75);}
+  .news-body{padding:20px;}
+  .news-date{font-size:12px;font-weight:700;color:var(--indigo);}
+  .news-card h3{font-size:18px;margin-top:10px;line-height:1.28;}
+  .news-card p{font-size:14px;color:var(--ink-soft);margin-top:8px;}
+
+  /* ---------- Eʼlonlar (sticky notes) ---------- */
+  .announce-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .note{
+    border:2px solid var(--ink);border-radius:16px;padding:22px;background:var(--lime);
+    box-shadow:5px 5px 0 var(--ink);
+  }
+  .note:nth-child(2){background:var(--sky);transform:rotate(1.5deg);}
+  .note:nth-child(3){background:var(--paper2);transform:rotate(-1.5deg);}
+  .note:nth-child(4){background:var(--magenta);color:var(--ink);}
+  .note .date{font-size:12.5px;font-weight:700;}
+  .note h3{font-size:17px;margin-top:12px;line-height:1.3;}
+  .note .loc{font-size:13px;margin-top:10px;font-weight:600;opacity:.8;}
+
+  /* ---------- Xorijiy safarlar ---------- */
+  .trips{background:var(--ink);color:var(--paper);padding:80px 0;margin-top:90px;}
+  .trips .eyebrow-tag{border-color:var(--paper);}
+  .trips .section-head h2{color:var(--paper);}
+  .trip-list{border-top:2px solid rgba(245,243,237,.25);}
+  .trip{
+    display:grid;grid-template-columns:160px 1fr auto;gap:24px;align-items:center;
+    padding:26px 0;border-bottom:2px solid rgba(245,243,237,.25);
+  }
+  .trip .when{font-weight:700;color:var(--lime);font-size:14px;}
+  .trip .country{font-family:var(--disp);font-size:24px;font-weight:700;}
+  .trip .desc{font-size:14px;color:rgba(245,243,237,.7);margin-top:6px;max-width:52ch;}
+  .flag-chip{
+    font-size:13px;font-weight:700;background:var(--paper);color:var(--ink);
+    padding:8px 16px;border-radius:99px;white-space:nowrap;
+  }
+
+  /* ---------- Hamkorlik ---------- */
+  .partners{padding:90px 0;}
+  .partner-wall{display:flex;flex-wrap:wrap;gap:14px;}
+  .partner-chip{
+    border:2px solid var(--ink);border-radius:99px;padding:14px 24px;
+    font-family:var(--disp);font-weight:700;font-size:17px;
+    transition:background .18s ease, color .18s ease;
+  }
+  .partner-chip:hover{background:var(--ink);color:var(--paper);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--indigo);color:var(--paper);padding:90px 0 40px;margin-top:0;}
+  footer h2{font-size:clamp(34px,5.6vw,64px);max-width:16ch;color:var(--paper);}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:2px solid rgba(245,243,237,.3);margin-top:20px;}
+  .foot-col h4{font-size:13px;font-weight:700;color:var(--lime);margin-bottom:14px;}
+  .foot-col a,.foot-col p{display:block;font-size:15px;color:rgba(245,243,237,.85);margin-bottom:10px;}
+  .foot-col a:hover{color:var(--lime);}
+  .foot-bottom{display:flex;justify-content:space-between;padding-top:26px;font-size:13px;color:rgba(245,243,237,.6);flex-wrap:wrap;gap:10px;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:940px){
+    .wrap{padding:0 22px;}
+    .nav-inner{padding:14px 22px;}
+    nav.links{
+      position:fixed;inset:66px 0 0 0;background:var(--paper);z-index:55;
+      flex-direction:column;padding:24px;gap:8px;transform:translateY(-110%);transition:transform .3s ease;
+    }
+    nav.links.open{transform:translateY(0);}
+    nav.links a{font-size:18px;padding:14px 0;border-bottom:1px solid var(--line);border-radius:0;}
+    .nav-toggle{display:flex;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .collage{order:-1;height:320px;}
+    .collage .initials{font-size:110px;}
+    .stats .wrap{grid-template-columns:1fr 1fr;}
+    .pillar-row,.pillar-row:nth-child(even){grid-template-columns:1fr;}
+    .pillar-row:nth-child(even) .pillar-block{order:0;}
+    .pillar-block{height:140px;}
+    .news-grid{grid-template-columns:1fr;}
+    .announce-grid{grid-template-columns:1fr;}
+    .trip{grid-template-columns:1fr;gap:8px;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand">
+      <span class="brand-mark">NM</span>
+      <span class="brand-name">Nilufar Matkarimova</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menyu"><span></span><span></span><span></span></button>
+    <nav class="links" id="navLinks">
+      <a href="#hero">Bosh sahifa</a>
+      <a href="#faoliyat">Faoliyat</a>
+      <a href="#yangiliklar">Yangiliklar</a>
+      <a href="#elonlar">Eʼlonlar</a>
+      <a href="#safarlar">Xorijiy safarlar</a>
+      <a href="#hamkorlik">Hamkorlik</a>
+      <a href="#aloqa">Aloqa</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div>
+      <div class="role-row">
+        <span class="pill on-indigo">Ekologik partiya, Markaziy Kengash</span>
+        <span class="pill on-lime">PhD, Pedagogika fanlari</span>
+      </div>
+      <h1>Nilufar<span class="last">Matkarimova</span></h1>
+      <p class="hero-desc">Yoshlar va xotin-qizlar masalalari boʻyicha oʻrinbosar. Ovozi eshitiladigan yoshlar, imkoniyati kengayadigan ayollar va real ishlaydigan gʻoyalar ustida ishlayman &mdash; mahalliydan xalqarogacha.</p>
+      <div class="hero-cta">
+        <a href="#faoliyat" class="btn btn-solid">Faoliyatni koʻrish</a>
+        <a href="#aloqa" class="btn btn-outline">Bogʻlanish</a>
+      </div>
+    </div>
+    <div class="collage">
+      <div class="blob"><div class="initials">NM</div></div>
+      <div class="collage-tag t1">✦ PhD</div>
+      <div class="collage-tag t2">12+ yil tajriba</div>
+      <div class="collage-tag t3">8 mamlakat</div>
+    </div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>YOSHLAR SIYOSATI</span><span class="dot">&bull;</span>
+      <span>AYOLLAR LIDERLIGI</span><span class="dot">&bull;</span>
+      <span>TA&#8217;LIM VA FAN</span><span class="dot">&bull;</span>
+      <span>XALQARO HAMKORLIK</span><span class="dot">&bull;</span>
+      <span>EKOLOGIK MAʼRIFAT</span><span class="dot">&bull;</span>
+      <span>YOSHLAR SIYOSATI</span><span class="dot">&bull;</span>
+      <span>AYOLLAR LIDERLIGI</span><span class="dot">&bull;</span>
+      <span>TA&#8217;LIM VA FAN</span><span class="dot">&bull;</span>
+      <span>XALQARO HAMKORLIK</span><span class="dot">&bull;</span>
+      <span>EKOLOGIK MAʼRIFAT</span><span class="dot">&bull;</span>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap" id="statsGrid"><!-- content/data.json orqali to'ldiriladi --></div>
+</section>
+
+<section id="faoliyat">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-tag">Toʻrtta yoʻnalish</span>
+      <h2>Nima ustida ishlayman</h2>
+    </div>
+    <div class="pillar-row">
+      <div class="pillar-block pb-1">YS</div>
+      <div class="pillar-text">
+        <h3>Yoshlar siyosati</h3>
+        <p>Yoshlarning ijtimoiy-siyosiy faolligini oshirish, yosh yetakchilarni qoʻllab-quvvatlash va ularni qaror qabul qilish jarayonlariga jalb etish boʻyicha dasturlar.</p>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <div class="pillar-block pb-2">AQ</div>
+      <div class="pillar-text">
+        <h3>Xotin-qizlar masalalari</h3>
+        <p>Ayollarning ijtimoiy-iqtisodiy imkoniyatlarini kengaytirish, liderlik maktablari, treninglar va huquqiy savodxonlikni oshirish boʻyicha ishlar.</p>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <div class="pillar-block pb-3">TF</div>
+      <div class="pillar-text">
+        <h3>Ta&#8217;lim va fan</h3>
+        <p>Pedagogika sohasidagi ilmiy-tadqiqot faoliyati, oʻqituvchilar malakasini oshirish va zamonaviy ta&#8217;lim metodologiyalarini joriy etish.</p>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <div class="pillar-block pb-4">EM</div>
+      <div class="pillar-text">
+        <h3>Ekologik maʼrifat</h3>
+        <p>Fuqarolar, ayniqsa yoshlar orasida ekologik madaniyat va barqaror rivojlanish tamoyillarini targʻib qilish boʻyicha maʼrifiy tashabbuslar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="yangiliklar" style="padding-top:90px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-tag">Soʻnggi yangilanishlar</span>
+      <h2>Yangiliklar</h2>
+    </div>
+    <div class="news-grid" id="newsGrid"><!-- content/data.json orqali to'ldiriladi --></div>
+  </div>
+</section>
+
+<section id="elonlar" style="padding-top:90px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-tag">Yaqinlashib kelmoqda</span>
+      <h2>Eʼlonlar</h2>
+    </div>
+    <div class="announce-grid" id="announceGrid"><!-- content/data.json orqali to'ldiriladi --></div>
+  </div>
+</section>
+
+<section class="trips" id="safarlar">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-tag">Xalqaro faoliyat</span>
+      <h2>Xorijiy safarlar</h2>
+    </div>
+    <div class="trip-list" id="tripList"><!-- content/data.json orqali to'ldiriladi --></div>
+  </div>
+</section>
+
+<section id="hamkorlik" class="partners">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-tag">Sheriklar</span>
+      <h2>Hamkorlik</h2>
+    </div>
+    <div class="partner-wall" id="partnerWall"><!-- content/data.json orqali to'ldiriladi --></div>
+  </div>
+</section>
+
+<footer id="aloqa">
+  <div class="wrap">
+    <h2>Taklif yoki hamkorlik boʻyicha yozing</h2>
+    <div class="foot-grid">
+      <div>
+        <div class="foot-col">
+          <h4>Aloqa</h4>
+          <a href="mailto:info@example.uz">info@example.uz</a>
+          <a href="tel:+998000000000">+998 00 000 00 00</a>
+          <p>Toshkent shahri, Oʻzbekiston</p>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Ijtimoiy tarmoqlar</h4>
+        <a href="#">Telegram</a>
+        <a href="#">Instagram</a>
+      </div>
+      <div class="foot-col">
+        <h4>Tashkilot</h4>
+        <a href="#">Ekologik partiya</a>
+        <a href="#">Markaziy Kengash</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Nilufar Matkarimova</span>
+      <span>Oʻzbekiston Ekologik partiyasi</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+      }
+    });
+  }
+</script>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const thumbColors = ['nt-1','nt-2','nt-3','nt-4','nt-5'];
+
+  function esc(s){
+    return (s || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+
+  function renderStats(stats){
+    const el = document.getElementById('statsGrid');
+    if(!el || !stats) return;
+    el.innerHTML = stats.map(s => `
+      <div class="stat-card">
+        <div class="num">${esc(s.number)}</div>
+        <div class="label">${esc(s.label)}</div>
+      </div>`).join('');
+  }
+
+  function renderNews(news){
+    const el = document.getElementById('newsGrid');
+    if(!el || !news) return;
+    el.innerHTML = news.map((n, i) => `
+      <div class="news-card">
+        <div class="news-thumb ${thumbColors[i % thumbColors.length]}">
+          ${n.image ? `<img src="${esc(n.image)}" alt="${esc(n.title)}">` : 'Foto'}
+        </div>
+        <div class="news-body">
+          <div class="news-date">${esc(n.date)}</div>
+          <h3>${esc(n.title)}</h3>
+          <p>${esc(n.excerpt)}</p>
+        </div>
+      </div>`).join('');
+  }
+
+  function renderAnnouncements(items){
+    const el = document.getElementById('announceGrid');
+    if(!el || !items) return;
+    el.innerHTML = items.map(a => `
+      <div class="note">
+        ${a.image ? `<img src="${esc(a.image)}" alt="${esc(a.title)}" style="width:100%;height:90px;object-fit:cover;border-radius:10px;border:2px solid var(--ink);margin-bottom:12px;">` : ''}
+        <div class="date">${esc(a.date)}</div>
+        <h3>${esc(a.title)}</h3>
+        <div class="loc">${esc(a.location)}</div>
+      </div>`).join('');
+  }
+
+  function renderTrips(trips){
+    const el = document.getElementById('tripList');
+    if(!el || !trips) return;
+    el.innerHTML = trips.map(t => `
+      <div class="trip">
+        <div class="when">${esc(t.date)}</div>
+        <div>
+          <div class="country">${esc(t.country)}</div>
+          <div class="desc">${esc(t.description)}</div>
+        </div>
+        <span class="flag-chip">${esc(t.flag || '')} ${esc(t.tag || '')}</span>
+      </div>`).join('');
+  }
+
+  function renderPartners(partners){
+    const el = document.getElementById('partnerWall');
+    if(!el || !partners) return;
+    el.innerHTML = partners.map(p => `<span class="partner-chip">${esc(p.name)}</span>`).join('');
+  }
+
+  fetch('content/data.json')
+    .then(r => r.json())
+    .then(data => {
+      renderStats(data.stats);
+      renderNews(data.news);
+      renderAnnouncements(data.announcements);
+      renderTrips(data.trips);
+      renderPartners(data.partners);
+    })
+    .catch(err => console.warn('Kontent yuklanmadi (content/data.json):', err));
+</script>
+
+</body>
+</html>
